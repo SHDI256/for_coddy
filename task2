@@ -1,0 +1,9 @@
+c1, b1 = int(input()), int(input())
+hours = 2 * c1
+fireless = c1
+
+while fireless >= b1:
+    hours += (fireless / b1) * 4
+    fireless = fireless % b1 + 2 * (fireless / b1)
+
+print(hours)

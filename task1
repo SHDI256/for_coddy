@@ -1,0 +1,18 @@
+from random import *
+def hoarsort(a_n, b_n):
+    '''
+    Будем использовать сортировку Хоара с использованием рекурсии для сокращения используемой памяти
+    '''
+    nm = a_n + b_n
+
+    if len(nm) <= 1: return nm
+    else: q = choice(nm)
+
+    l_n = [n for n in nm if n < q]
+    e_n = [q] * nm.count(q)
+    b_n = [n for n in nm if n > q]
+
+    return hoarsort(l_n, []) + e_n + hoarsort(b_n, [])
+
+
+print(hoarsort([randint(1, 1000) for _ in range(1000001)], [234, 5, 1, 2, 3, 45, 32, 4]))
